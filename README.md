@@ -1,19 +1,33 @@
-# App
+# Credit Approval App
 
-To start your Phoenix server:
+## Requirements and prerequisites
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+For a reproducible environment [asdf](https://asdf-vm.com/#/) should be installed.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+```sh
+# Install Erlang asdf plugin
+asdf plugin-add erlang
+# Install and use Erlang
+asdf install erlang 25.0.1
+asdf local erlang 25.0.1
+# Install Elixir asdf plugin
+asdf plugin-add elixir
+# Install and use Elixir
+asdf install elixir 1.13.4-otp-25
+asdf local elixir 1.13.4-otp-25
+# Install rebar and hex
+mix local.rebar --force
+mix local.hex --force
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+# Now let's run mix command to setup our app
+mix setup
+```
 
-## Learn more
+## Running the App
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+- To start your Phoenix server with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+- Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+
+## Tests
+
+- Run tests with `mix test`

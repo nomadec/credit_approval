@@ -1,0 +1,58 @@
+<.form let={f} for={@changeset} action={@action} class="box">
+  <h1 class="title has-text-centered has-text-grey-light">Credit Assessment</h1>
+
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= checkbox f, :has_paying_job %>
+    </div>
+    <label for="risk_assessment_has_paying_job" class="label">I do have a paying job</label>
+    <%= error_tag f, :has_paying_job %>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= checkbox f, :employed_for_year %>
+    </div>
+    <label for="risk_assessment_employed_for_year" class="label">I do consistently had a paying job for past 12 months</label>
+    <%= error_tag f, :employed_for_year %>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= checkbox f, :owns_home %>
+    </div>
+    <label for="risk_assessment_owns_home" class="label">I do own a home</label>
+    <%= error_tag f, :owns_home %>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= checkbox f, :owns_car %>
+    </div>
+    <label for="risk_assessment_owns_car" class="label">I do own a car</label>
+    <%= error_tag f, :owns_car %>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= checkbox f, :additional_income %>
+    </div>
+    <label for="risk_assessment_additional_income" class="label">I do have additional source of income</label>
+    <%= error_tag f, :additional_income %>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= submit "Submit", class: "button is-link" %>
+    </div>
+    <div class="control">
+      <%= link "Cancel", to: Routes.page_path(@conn, :index), class: "button is-link is-light" %>
+    </div>
+  </div>
+</.form>

@@ -1,0 +1,39 @@
+<div class="box">
+  <h1 class="title has-text-centered has-text-grey-light is-spaced">Credit Application Status</h1>
+
+  <div class="field">
+    <label class="label">What is your total monthly income from all income sources (in USD)</label>
+    <div class="control">
+      <input class="input" type="number" value={@credit.total_income} disabled>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">What is your total monthly expenses (in USD)</label>
+    <div class="control">
+      <input class="input" type="number" value={@credit.total_expenses} disabled>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Credit Limit you are eligible for (in USD)</label>
+    <div class="control">
+      <input class="input" type="number" value={@credit.credit_limit} disabled>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Your Current Credit Score is</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="High" value={@credit.credit_score} disabled>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= link "Close", to: Routes.page_path(@conn, :index), class: "button is-link is-light" %>
+    </div>
+  </div>
+</div>
+
+

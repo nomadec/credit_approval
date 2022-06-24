@@ -1,0 +1,10 @@
+<h1 class="title has-text-centered has-text-grey-light is-spaced">Application Status</h1>
+<h3 class="subtitle has-text-centered has-text-grey-dark">
+  <%= assessment_status_message(@risk_assessment.passed) %>
+</h3>
+<div class="field is-grouped">
+  <div class="control">
+    <%= link "Back", to: Routes.page_path(@conn, :index), class: "is-link is-light" %>
+  </div>
+</div>
+

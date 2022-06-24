@@ -1,0 +1,43 @@
+<.form let={f} for={@changeset} action={@action} class="box">
+  <h1 class="title has-text-centered has-text-grey-light is-spaced">Credit Limit Evaluation</h1>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+  <h3 class="subtitle has-text-centered has-text-grey-light">Please provide us with the following information</h3>
+
+
+  <%= hidden_input f, :risk_assessment_id %>
+
+  <div class="field">
+    <label class="label">What is your total monthly income from all income sources (in USD)</label>
+    <div class="control">
+      <%= number_input f, :total_income, class: "input" %>
+    </div>
+    <br>
+    <p class="help is-danger">
+      <%= error_tag f, :total_income %>
+    </p>
+  </div>
+
+  <div class="field">
+    <label class="label">What is your total monthly expenses (in USD)</label>
+    <div class="control">
+      <%= number_input f, :total_expenses, class: "input" %>
+    </div>
+    <br>
+    <p class="help is-danger">
+      <%= error_tag f, :total_expenses %>
+    </p>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= submit "Submit", class: "button is-link" %>
+    </div>
+    <div class="control">
+      <%= link "Cancel", to: Routes.page_path(@conn, :index), class: "button is-link is-light" %>
+    </div>
+  </div>
+</.form>

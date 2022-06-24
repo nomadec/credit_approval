@@ -18,6 +18,8 @@ defmodule AppWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/credits", CreditController, only: [:new, :create, :show]
+    resources "/risk_assessments", RiskAssessmentController, only: [:new, :create, :show]
   end
 
   # Other scopes may use custom stacks.
@@ -52,5 +54,12 @@ defmodule AppWeb.Router do
 
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
+  end
+
+  scope "/", AppWeb do
+    pipe_through :browser
+
+    get "/*path", FourOhFourController, :index
+    post "/*path", FourOhFourController, :index
   end
 end
